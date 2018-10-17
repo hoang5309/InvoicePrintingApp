@@ -1,0 +1,72 @@
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\Trial_1.exe.config
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\Trial_1.exe
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\Trial_1.pdb
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.csprojAssemblyReference.cache
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.Form1.resources
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.Properties.Resources.resources
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.csproj.GenerateResource.cache
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.csproj.CoreCompileInputs.cache
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.exe
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.pdb
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\EPPlus.dll
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\EPPlus.xml
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\obj\Debug\Trial_1.csproj.CopyComplete
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\ExcelDataReader.dll
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\ExcelDataReader.xml
+C:\Users\Hoang\Documents\Visual Studio 2017\Projects\Trial_1\Trial_1\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe.config
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.pdb
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.dll
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.dll
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.xml
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.xml
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csprojAssemblyReference.cache
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Form1.resources
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Properties.Resources.resources
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.GenerateResource.cache
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CoreCompileInputs.cache
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CopyComplete
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.exe
+C:\Users\Rice\Desktop\Invoice App\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.pdb
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe.config
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.pdb
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.dll
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.dll
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.dll
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.xml
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.xml
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.xml
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csprojAssemblyReference.cache
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Form1.resources
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Properties.Resources.resources
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.GenerateResource.cache
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CopyComplete
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.exe
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.pdb
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\itextsharp.dll
+C:\xampp\htdocs\timeClock\InvoicePrintApp\Trial_1\bin\Debug\itextsharp.xml
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe.config
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.exe
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\Trial_1.pdb
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.dll
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.dll
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\itextsharp.dll
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\EPPlus.xml
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.xml
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\bin\Debug\itextsharp.xml
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csprojAssemblyReference.cache
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Form1.resources
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.Properties.Resources.resources
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.GenerateResource.cache
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CoreCompileInputs.cache
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.csproj.CopyComplete
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.exe
+C:\Users\crstadmin\Documents\GitHub\InvoicePrintApp\Trial_1\obj\Debug\Trial_1.pdb
