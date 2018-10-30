@@ -275,6 +275,7 @@ namespace Trial_1
             patientStatementList = new List<NMGPatientStatement>(); //Stores each line of Patient Statement
             //patientList2 = new List<NMGPatient>(); //Stores different Patient
             patientStatementList2 = new List<NMGPatientStatement>(); //Stores each line of Patient Statement
+            int patientCount = 0;
             foreach (DataRow dr in dt.Rows)
             {
                 for (int i = 1; i < lines.Length; i++)
@@ -288,6 +289,9 @@ namespace Trial_1
                             string[] info = lines[j].Split(',');
                             if (info[4].Trim('"') == dr["Column1"].ToString())
                             {
+                                patientCount++;
+                                label5.Text = patientCount.ToString();
+                                label5.Update();
                                 List<string> infoPatientList = new List<string>(info);
                                 int curr = 0;
                                 while (curr < infoPatientList.Count)
@@ -453,6 +457,9 @@ namespace Trial_1
                             string[] info = lines[j].Split(',');
                             if (info[4].Trim('"') == dr2["Column1"].ToString())
                             {
+                                patientCount++;
+                                label5.Text = patientCount.ToString();
+                                label5.Update();
                                 List<string> infoPatientList = new List<string>(info);
                                 int curr = 0;
                                 while (curr < infoPatientList.Count)
