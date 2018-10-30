@@ -12,6 +12,8 @@ using OfficeOpenXml;
 using ExcelDataReader;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
+using System.Threading;
+
 namespace Trial_1
 {
     public partial class Form1 : Form
@@ -20,10 +22,14 @@ namespace Trial_1
         {
             InitializeComponent();
         }
+
+        protected string FolderForToday;
         protected int page; protected int sta;
         protected List<DataSet> GenDS = new List<DataSet>(); // this variable holding the dataset for all excel files
         protected DataSet result = new DataSet(); // when you convert from excel file to dataset
 
+        protected string MedExcFile;
+        protected int Total;
         protected string addr1;
         protected int[] NMEDPreClean;
         protected int MedRow = 2; //keep tracking rows for Northern Medical Group
@@ -47,13 +53,13 @@ namespace Trial_1
 
         private void RDBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            string[] getFolder = Directory.GetDirectories(@"L:\\Invoice\Raw Data");
+            string[] getFolder = Directory.GetDirectories(@"C:\\Invoice\Raw Data");
             foreach (string gF in getFolder)
             {
                 switch (Path.GetFileName(gF))
                 {
                     case "Northern Medical Group":
-                        string[] getAllRawData = Directory.GetFiles(@"L:\\Invoice\Raw Data\" + Path.GetFileName(gF));
+                        string[] getAllRawData = Directory.GetFiles(@"C:\\Invoice\Raw Data\" + Path.GetFileName(gF));
                         foreach (string gARD in getAllRawData)
                         {
                             NorthernMedicalGroupTXT(gARD);
@@ -62,10 +68,10 @@ namespace Trial_1
                 }
             }
             //Display all excel files
-            string[] getFolderExcels = Directory.GetDirectories(@"L:\\Invoice\Excel Files");
+            string[] getFolderExcels = Directory.GetDirectories(@"C:\\Invoice\Excel Files");
             foreach (string gFE in getFolderExcels)
             {
-                string[] allFiles = Directory.GetFiles(@"L:\\Invoice\Excel Files\" + Path.GetFileName(gFE));
+                string[] allFiles = Directory.GetFiles(@"C:\\Invoice\Excel Files\" + Path.GetFileName(gFE));
                 foreach (string ef in allFiles)
                 {
                     FileStream fs = File.Open(ef, FileMode.Open, FileAccess.Read);
@@ -91,13 +97,13 @@ namespace Trial_1
 
         private void ExcBtn_MouseClick(object sender, MouseEventArgs e)
         {
-            string[] getCleanFolder = Directory.GetDirectories(@"L:\\Invoice\Clean Data");
+            string[] getCleanFolder = Directory.GetDirectories(@"C:\\Invoice\Clean Data");
             foreach (string gCF in getCleanFolder)
             {
                 switch (Path.GetFileName(gCF))
                 {
                     case "Northern Medical Group":
-                        string[] cleanFiles = Directory.GetFiles(@"L:\\Invoice\Clean Data\" + Path.GetFileName(gCF));
+                        string[] cleanFiles = Directory.GetFiles(@"C:\\Invoice\Clean Data\" + Path.GetFileName(gCF));
                         foreach (string cL in cleanFiles)
                         {
                             NorthernMedicalGroupPDF(cL);
@@ -105,10 +111,6 @@ namespace Trial_1
                         break;
                 }
             }
-        }
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void NorthernMedicalGroupTXT(string textFile)
@@ -119,8 +121,8 @@ namespace Trial_1
             string[] lines = System.IO.File.ReadAllLines(textFile);
             NMedList = System.IO.File.ReadAllLines(textFile).ToList();
             string location = dateSplit[2] + @"\" + dateSplit[1] + @"\" + date;
-            string newFolder = @"L:\Invoice\Clients\Northern Medical Group\" + location;
-            string ExcelFolder = @"L:\Invoice\Excel Files\Northern Medical Group";
+            string newFolder = @"C:\Invoice\Clients\Northern Medical Group\" + location;
+            string ExcelFolder = @"C:\Invoice\Excel Files\Northern Medical Group";
             //create a folder based on current year, month, and date
             Directory.CreateDirectory(newFolder);
             // create a text file which have all the patients 
@@ -128,7 +130,7 @@ namespace Trial_1
             //create the excel file of all the patients without the code 
             string ExcFile = newFolder + @"\NMG_" + date + ".xlsx";
             // create the copy excel file of the all the patient so user can add bar code and tray number in 
-            string ExcFile2 = ExcelFolder + @"\NMG_" + date + ".xlsx";
+            MedExcFile = ExcelFolder + @"\NMG_" + date + ".xlsx";
             // create the excel file for all patients who have more than 3 pages 
             string ExcFile3 = newFolder + @"\NMG_" + date + "_Extra.xlsx";
             File.AppendAllLines(comText, NMedList);// keep adding the the text to the combine text file 
@@ -145,14 +147,14 @@ namespace Trial_1
                 var worksheet = med.Workbook.Worksheets["Northern Medical Group"]; // load worksheet based on name
                 worksheet.Cells[headerRange].LoadFromArrays(headerRow); //load data to worksheet 
                 FileInfo excelFile = new FileInfo(ExcFile);
-                FileInfo excelFile2 = new FileInfo(ExcFile2);
+                FileInfo excelFile2 = new FileInfo(MedExcFile);
                 FileInfo excelFile3 = new FileInfo(ExcFile3);
                 med.SaveAs(excelFile); // save file
                 med.SaveAs(excelFile2);
                 med.SaveAs(excelFile3);
             }
             FileInfo loadfile = new FileInfo(ExcFile);// load excel file
-            FileInfo copyFile = new FileInfo(ExcFile2); // load copy file 
+            FileInfo copyFile = new FileInfo(MedExcFile); // load copy file 
             FileInfo ExtraFile = new FileInfo(ExcFile3); // load copy file 
             ExcelPackage med1 = new ExcelPackage(loadfile);
             ExcelPackage med2 = new ExcelPackage(ExtraFile);
@@ -239,33 +241,35 @@ namespace Trial_1
             med2.SaveAs(ExtraFile);
             string name = Path.GetFileName(textFile);
             string dir = newFolder + @"\" + name;
-            //File.Move(textFile, dir);
+            FolderForToday = newFolder;
+            File.Move(textFile, dir);
         }
 
         private void NorthernMedicalGroupPDF(string cleanExcelFiles)
         {
+            File.Delete(MedExcFile);
             DateTime todayPDF = DateTime.Today;
             string datePDF = todayPDF.ToString("dd-MM-yyyy");
             string[] datePDFSplit = datePDF.Split('-');
             string Direction = datePDFSplit[2] + @"\" + datePDFSplit[1] + @"\" + datePDF;
-            string CompareTextFile = @"L:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + ".txt";
+            string CompareTextFile = @"C:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + ".txt";
             string[] lines = System.IO.File.ReadAllLines(CompareTextFile);
             DataSet MEDDataSet = new DataSet();
             DataSet MEDDataSet2 = new DataSet();
             FileStream fs = File.Open(cleanExcelFiles, FileMode.Open, FileAccess.Read);
-            FileStream fs2 = File.Open(@"L:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + "_Extra.xlsx", FileMode.Open, FileAccess.Read);
+            FileStream fs2 = File.Open(@"C:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + "_Extra.xlsx", FileMode.Open, FileAccess.Read);
             IExcelDataReader MEDClean = ExcelReaderFactory.CreateOpenXmlReader(fs);
             IExcelDataReader MEDClean2 = ExcelReaderFactory.CreateOpenXmlReader(fs2);
             MEDDataSet = MEDClean.AsDataSet();
             MEDDataSet2 = MEDClean2.AsDataSet();
             DataTable dt = MEDDataSet.Tables[0];
             DataTable dt2 = MEDDataSet2.Tables[0];
-            string resources = @"L:\Invoice\PDF Tools";
-            string pdfFile = @"L:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + ".pdf";
-            //string pdfFile2 = @"L:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + "_Extra.pdf";
-            string coverPdfFile = @"L:\Invoice\Clients\Northern Medical Group\" + Direction + @"\CRST_CoverPage.pdf";
+            string resources = @"C:\Invoice\PDF Tools";
+            string pdfFile = @"C:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + ".pdf";
+            //string pdfFile2 = @"C:\Invoice\Clients\Northern Medical Group\" + Direction + @"\" + "NMG_" + datePDF + "_Extra.pdf";
+            string coverPdfFile = @"C:\Invoice\Clients\Northern Medical Group\" + Direction + @"\CRST_CoverPage.pdf";
             pageList = new Dictionary<int, int>();
-            createPDF = new NMGPDFGenerator(resources);
+            createPDF = new NMGPDFGenerator(resources, this);
             createCoverPage = new CRSTCoverPage(resources);
             patientList = new List<NMGPatient>(); //Stores different Patient
             patientStatementList = new List<NMGPatientStatement>(); //Stores each line of Patient Statement
@@ -590,46 +594,7 @@ namespace Trial_1
                     }
                 }
             }
-            var countPages = 0;
-            for (int i = 1; i > 4; i++)
-            {
-                foreach (DataRow dr in dt.Rows)
-                {
-                    int Column10;
-                    if (Int32.TryParse(dr["Column10"].ToString(), out Column10))
-                    {
-                        if(Column10 == i)
-                        {
-                            countPages++;
-                        }
-                    }
-                }
-                if (countPages != 0)
-                {
-                    pageList.Add(i, countPages);
-                }
-                countPages = 0;
-            }
-            var countPages2 = 0;
-            for (int j = 4; j > 10; j++)
-            {
-                foreach (DataRow dr2 in dt2.Rows)
-                {
-                    int Column10;
-                    if (Int32.TryParse(dr2["Column10"].ToString(), out Column10))
-                    {
-                        if (Column10 == j)
-                        {
-                            countPages2++;
-                        }
-                    }
-                }
-                if(countPages2 != 0)
-                {
-                    pageList.Add(j, countPages2);
-                }
-                countPages2 = 0;
-            }
+            Total  = patientList.Count();
             //Creates PDF for all patients into second file
             createPDF.GeneratorPDF(patientList, pdfFile);
             //Finds total amount of pages and patients for PDF file
@@ -640,8 +605,12 @@ namespace Trial_1
             string backSlash = "\"";
             string[] fileLines = Regex.Split(coverPdfFile, backSlash);
             //Prints cover page for Northern Medical Group
-            createCoverPage.PrintCoverPage(pageList, amountOfPatients, amountOfPages, fileLines, coverPdfFile);
-
+            //createCoverPage.PrintCoverPage(pageList, amountOfPatients, amountOfPages, fileLines, coverPdfFile);
+            string CleanFolder = FolderForToday + @"\Clean\";
+            Directory.CreateDirectory(CleanFolder);
+            string cleanDir = CleanFolder + Path.GetFileName(cleanExcelFiles);
+            fs.Close();
+            File.Move(cleanExcelFiles, cleanDir);
         }
         private int checkForOneQuote(string checkString)
         {
@@ -656,10 +625,27 @@ namespace Trial_1
             return count;
         }
 
+        public void UpdateMember(string percentage)
+        {          
+            if(percentage == "Done")
+            {
+                label3.Text = "Done";
+            }
+            else
+            {
+                label3.Text = percentage + "/" + Total;
+            }
+            label3.Invalidate();
+            label3.Update();
+            label3.Refresh();
+            Application.DoEvents();
+            Console.WriteLine(label3.Text);
+        }
+
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
             Document doc = new Document(PageSize.LETTER, 0, 0, 0, 0);//611*791
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(@"L:\Invoice\Clients\abcd.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(@"C:\Invoice\Clients\abcd.pdf", FileMode.Create));
             doc.Open();
             doc.NewPage();
 

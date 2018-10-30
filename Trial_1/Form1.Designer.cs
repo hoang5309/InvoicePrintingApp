@@ -26,16 +26,16 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.RDBtn = new System.Windows.Forms.Button();
             this.Display1 = new System.Windows.Forms.DataGridView();
             this.Opts = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ExcBtn = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Display1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,22 +89,14 @@
             this.ExcBtn.UseVisualStyleBackColor = true;
             this.ExcBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ExcBtn_MouseClick);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(260, 313);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(528, 34);
-            this.progressBar1.TabIndex = 12;
-            this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(135, 325);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 13);
+            this.label2.Size = new System.Drawing.Size(125, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Generate PDF Progress";
+            this.label2.Text = "Generate PDF Progress :";
             // 
             // button1
             // 
@@ -116,19 +108,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(266, 325);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "0 %";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 359);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.ExcBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Opts);
             this.Controls.Add(this.Display1);
             this.Controls.Add(this.RDBtn);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Display1)).EndInit();
@@ -143,9 +145,9 @@
         private System.Windows.Forms.ComboBox Opts;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ExcBtn;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label label3;
     }
 }
 

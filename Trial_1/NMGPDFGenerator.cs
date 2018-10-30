@@ -4,11 +4,13 @@ using System.Linq;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
+using System.Threading;
 
 namespace Trial_1
 {
     public class NMGPDFGenerator
     {
+
         //From button to top
         //left button (0, 0)
         //right top (611, 791)
@@ -20,8 +22,7 @@ namespace Trial_1
         private readonly string imbFontPath;
         private readonly string logoPath;
         private readonly string cardTypeImgePath;
-
-
+        
         #region Magic strings
 
         private readonly string[] messages = {"\t\u2022 Northern Medical Group is excited to announce the opening of our new multi-specialty office "
@@ -100,19 +101,21 @@ namespace Trial_1
         private string dyn_FooterLeft;// = fbiCall + "(845) 592-4915" + "              " + patient + "FirstName LastName";
 
         #endregion
+        public Form1 x; 
 
-        public NMGPDFGenerator(string aResourcePath)
+        public NMGPDFGenerator(string aResourcePath, Form1 form)
         {
             pageFontPath = aResourcePath + "\\Resources\\Fonts\\3OF9_NEW.TTF";
             imbFontPath = aResourcePath + "\\Resources\\Fonts\\USPSIMBStandard.ttf";
             logoPath = aResourcePath + "\\Resources\\Images\\NMGLogo.png";
             cardTypeImgePath = aResourcePath + "\\Resources\\Images\\card-select.png";
+            x = form;
         }
-
+        
         public void GeneratorPDF(IEnumerable<NMGPatient> aPatientList, string aOutPutPath)
         {
+            int count = 0;
             if (aPatientList == null) throw new ArgumentNullException(errorCode);
-
             DateTime currentTime = DateTime.Now;
             string fileName = "\\CRSTJob" + currentTime.ToString("yyyyMMdd_HHmmss") + ".pdf";
             //aOutPutPath += fileName;
@@ -124,11 +127,11 @@ namespace Trial_1
 
             long timeInNumber = currentTime.ToFileTime();
             int pdfCounter = 0;
-
             foreach (var p in aPatientList)
             {
+                count++;
+                x.UpdateMember(count.ToString());
                 setCurrentPatientInfo(p);
-
                 for (int i = 0; i < p.StatementPageSapreted.Count(); i++)
                 {
                     doc.NewPage();
@@ -181,7 +184,7 @@ namespace Trial_1
                     addFooter(wri, rect, i+1, p.StatementPageSapreted.Count());
                 }
             }
-
+            x.UpdateMember("Done");
             doc.Close();
         }
 
